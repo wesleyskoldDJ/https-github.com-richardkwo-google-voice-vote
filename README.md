@@ -22,7 +22,9 @@ A few Python libs are required.
 * imaplib
 * email
 * numpy
-* matplotib
+* matplotlib
+
+Ignore error (.whl missing …) while installing imaplib. 
 
 Usage
 -----
@@ -46,3 +48,16 @@ Choose (N) if you want to start a new vote.
 Choose (C) if you want to resume a previous voting. It will recover from `vote-record.txt` and then continue counting based on that.
 
 6. Now check out `voting-now.png`. It is bar-plot image that is refreshed every 15 seconds. You can display a real-time voting results with an auto-refreshing image viewer!
+
+
+
+
+
+OPENING AND CLOSING
+1. OPEN TERMINAL
+2. NAVIGATE TO THE ROOT FOLDER `cd ~/Desktop/richardkwo-google-voice-vote-master`
+3. ACTIVATE ENVIRONMENT	`source env/bin/activate`
+4. RUN APP	`python vote-fetch.py`
+5. FOLLOW PROMPT TO START NEW VOTE
+6. CLOSE OUT VOTE WITH ctrl-c
+7. copy ‘voting-now.png” and save in another folder
