@@ -27,8 +27,7 @@ def getTextAndNumber(mailRaw):
     fromNumber = subjectLine.split("\"")
     fromNumber = fromNumber[1]
 
-    mailText = mailText.rstrip()
-    mailText = mailText.split("\n")[0]
+    mailText = mailText.lower()
     mailText = mailText.rstrip()
     return mailText, fromNumber
 
@@ -48,7 +47,7 @@ def fetchMail(mail, uid):
 
 def getSMSMails(mail):
     # search for unread sms mails    
-    result, data = mail.uid('search', None, '(UNSEEN HEADER Subject "SMS from")')
+    result, data = mail.uid('search', None, '(UNSEEN HEADER Subject "New text message from")')
     if result == 'OK':
         data = data[0]
         if data == "":
@@ -95,11 +94,13 @@ def updateVotes(mail, votedNumbersDict, voteCountDict, votePatternDict, voteReco
         for uid in uidList:
             mailRaw = fetchMail(mail, uid)
             mailText, fromNumber = getTextAndNumber(mailRaw)
-            '''            
+
+            '''
             print "UID:", uid
             print "Text:", mailText
             print "Number:", fromNumber, "\n"
             '''
+            
             foundFlag = False
             for voteKeyword in votePatternDict.keys():
                 if voteKeyword in mailText:
